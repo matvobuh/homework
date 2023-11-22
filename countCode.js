@@ -1,18 +1,21 @@
 function countCode(letter, codes) {
-  
-  if (typeof letter === 'string' && letter.length === 1 && Array.isArray(codes)) {
+
+  let count = 0;
+
+ 
+  for (let i = 0; i < codes.length; i++) {
    
-    const filteredCodes = codes.filter(code => code.startsWith(letter));
-   
-    return filteredCodes.length;
-  } else {
-    
-    return "Vigane sisend";
+    if (codes[i].startsWith(letter)) {
+      
+      count++;
+    }
   }
+
+ 
+  return count;
 }
 
 
-const koodid = ["abcd", "efgh", "ijkl", "mnop", "iaaa", "ibbb", "iccc"];
-const algustäht = "i";
-const tulemus = countCode(algustäht, koodid);
-console.log(`Koodide arv, mis algavad "${algustäht}" tähega: ${tulemus}`);
+const codesArray = ["apple", "banana", "orange", "kiwi", "pear", "peach"];
+const result = countCode("p", codesArray);
+console.log(result); 
